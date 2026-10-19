@@ -229,7 +229,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="wrap req">
       <aside>
         <h2>اطلب إعلانك<span class="en">Request a project</span></h2>
-        <p>عبّي الطلب ويوصلنا على البريد مباشرة. يطلع لك رقم طلب تتابع فيه، ويوصلك إيميل تأكيد فيه الرقم، ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
+        <p>عبّي الطلب ويوصلنا على البريد مباشرة. يطلع لك رقم طلب تتابع فيه، ونرجع لك على إيميلك أو الواتساب بفكرة وسعر خلال يوم عمل.</p>
         <p class="privacy">نستخدم بياناتك للرد على طلبك فقط، وما نشاركها مع أي جهة.</p>
       </aside>
       <form id="reqform" action="https://formsubmit.co/kjrstudio.ksa@gmail.com" method="POST">
@@ -238,7 +238,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://kjrstudioksa.com/thanks.html">
-        <input type="hidden" name="_autoresponse" value="أهلا بك، استلمنا طلبك في KJR Studio. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل. لو عندك أي إضافة، رد على هذا الإيميل أو راسلنا واتساب: +966 57 942 9980">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="f"><label for="name">الاسم</label><input id="name" name="الاسم" required autocomplete="name"></div>
@@ -264,7 +263,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="f full"><label for="brief">وش تبغى بالضبط؟ <small>(الفكرة، الجمهور، وين بتنشره)</small></label><textarea id="brief" name="التفاصيل" required></textarea></div>
         <div class="f full"><label for="files">رابط الشعار أو صور المنتج <small>(Google Drive أو WeTransfer، اختياري)</small></label><input id="files" type="url" name="رابط الملفات" placeholder="https://"></div>
         <label class="consent"><input type="checkbox" required> أوافق على استخدام بياناتي للتواصل معي بخصوص هذا الطلب.</label>
-        <button class="wa" type="submit">أرسل الطلب</button>
+        <button class="wa" type="submit" id="sendbtn">أرسل الطلب</button>
+        <p class="f full" id="formmsg" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </section>
@@ -298,20 +298,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 addEventListener('load',()=>document.body.classList.add('loaded'));
 (function(){
   var f=document.getElementById('reqform'); if(!f) return;
-  var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', WA='966579429980';
+  var btn=document.getElementById('sendbtn'), msg=document.getElementById('formmsg');
   function mkRef(){
     var d=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'2-digit',month:'2-digit',day:'2-digit'}).format(new Date()).replace(/-/g,'');
     var r='',b=new Uint32Array(3); crypto.getRandomValues(b);
     for(var i=0;i<3;i++) r+=A[b[i]%A.length];
     return 'KJR-'+d+'-'+r;
   }
-  f.addEventListener('submit',function(){
-    var ref=mkRef(), biz=(f.elements['النشاط'].value||'').trim();
+  function v(n){var e=f.elements[n];return e?(e.value||'').trim():''}
+  function waText(ref){
+    return 'السلام عليكم، طلب جديد رقم '+ref+'\nالاسم: '+v('الاسم')+'\nالنشاط: '+v('النشاط')+'\nالخدمة: '+v('الخدمة')+'\nالموعد: '+v('موعد التسليم')+'\nالتفاصيل: '+v('التفاصيل');
+  }
+  f.addEventListener('submit',function(ev){
+    var ref=v('رقم الطلب')||mkRef(), biz=v('النشاط');
     f.elements['رقم الطلب'].value=ref;
     f.elements['_subject'].value='طلب جديد '+ref+(biz?' | '+biz:'');
-    f.elements['_autoresponse'].value='أهلا بك، استلمنا طلبك في KJR Studio.\n\nرقم طلبك: '+ref+'\n\nاحتفظ بالرقم للمتابعة. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل. لو عندك أي إضافة، رد على هذا الإيميل أو راسلنا واتساب على +966 57 942 9980 واذكر رقم الطلب.';
     f.elements['_next'].value=location.origin+'/thanks.html?ref='+encodeURIComponent(ref);
     try{sessionStorage.setItem('kjr_ref',ref)}catch(e){}
+    if(!window.fetch||!window.FormData) return; /* fallback: normal POST */
+    ev.preventDefault();
+    if(f.elements['_honey'] && f.elements['_honey'].value) return;
+    btn.disabled=true; btn.textContent='جاري الإرسال...'; msg.hidden=true;
+    var ctl=window.AbortController?new AbortController():null, t=setTimeout(function(){ctl&&ctl.abort()},45000);
+    fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:new FormData(f),headers:{Accept:'application/json'},signal:ctl?ctl.signal:undefined})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||String(j.success)!=='true') throw new Error(j.message||r.status);})})
+      .then(function(){clearTimeout(t); location.href='thanks.html?ref='+encodeURIComponent(ref);})
+      .catch(function(){
+        clearTimeout(t); btn.disabled=false; btn.textContent='أرسل الطلب';
+        msg.hidden=false;
+        msg.innerHTML='ما قدرنا نرسل الطلب من الموقع الحين. رقم طلبك <b dir="ltr">'+ref+'</b>. أرسله لنا واتساب بضغطة وحدة، والتفاصيل تنكتب تلقائيا: <a class="wa" style="display:inline-block;margin-top:10px" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(waText(ref))+'">أرسل الطلب واتساب</a>';
+      });
   });
 })();
 </script>

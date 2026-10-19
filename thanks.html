@@ -13,7 +13,7 @@ a{display:inline-block;margin:28px 10px 0;color:#12100C;background:#C9A24A;text-
 a.g{background:none;color:#E8DCC4;border:1px solid #3a3328}</style></head>
 <body><main><img src="logo.png" alt="KJR Studio"><h1>وصلنا طلبك</h1>
 <div class="ref" id="refbox" hidden><small>رقم طلبك</small><b id="ref"></b><button type="button" id="copy">نسخ الرقم</button></div>
-<p id="msg">أرسلنا لك إيميل تأكيد. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
+<p id="msg">بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
 <a id="wa" href="https://wa.me/966579429980">راسلنا واتساب</a><a class="g" href="/">رجوع للموقع</a></main>
 <script>
 (function(){
@@ -22,7 +22,7 @@ a.g{background:none;color:#E8DCC4;border:1px solid #3a3328}</style></head>
   if(!ref||!/^KJR-\d{6}-[A-Z0-9]{3}$/.test(ref)) return;
   document.getElementById('ref').textContent=ref;
   document.getElementById('refbox').hidden=false;
-  document.getElementById('msg').textContent='احتفظ بالرقم للمتابعة، وأرسلناه لك في إيميل التأكيد. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.';
+  document.getElementById('msg').textContent='احتفظ بالرقم للمتابعة. بنراجع التفاصيل ونرجع لك على إيميلك أو الواتساب بفكرة وسعر خلال يوم عمل.';
   document.getElementById('wa').href='https://wa.me/966579429980?text='+encodeURIComponent('السلام عليكم، بخصوص طلبي رقم '+ref);
   document.getElementById('copy').onclick=function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(ref):Promise.reject()).then(function(){b.textContent='تم النسخ'}).catch(function(){b.textContent=ref})};
 })();
