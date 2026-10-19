@@ -4,8 +4,26 @@
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&family=IBM+Plex+Sans+Arabic:wght@300;600&display=swap" rel="stylesheet">
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#12100C;color:#E8DCC4;font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:300;text-align:center;padding:24px}
 img{width:72px;border-radius:12px;margin:0 auto 24px}h1{font-family:"El Messiri",serif;font-size:clamp(30px,5vw,46px);margin:0}
-p{color:#CFC3AC;max-width:44ch;margin:16px auto 0;line-height:1.8}a{display:inline-block;margin:28px 10px 0;color:#12100C;background:#C9A24A;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:999px}
+p{color:#CFC3AC;max-width:44ch;margin:16px auto 0;line-height:1.8}
+.ref{margin:26px auto 0;display:inline-flex;flex-direction:column;gap:6px;border:1px solid #C9A24A;border-radius:14px;padding:16px 26px;background:rgba(201,162,74,.06)}
+.ref small{color:#CFC3AC;font-size:13px}
+.ref b{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:clamp(22px,4vw,30px);letter-spacing:.06em;color:#C9A24A;direction:ltr}
+.ref button{font:inherit;font-size:13px;background:none;border:0;color:#E8DCC4;text-decoration:underline;cursor:pointer;padding:0}
+a{display:inline-block;margin:28px 10px 0;color:#12100C;background:#C9A24A;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:999px}
 a.g{background:none;color:#E8DCC4;border:1px solid #3a3328}</style></head>
 <body><main><img src="logo.png" alt="KJR Studio"><h1>وصلنا طلبك</h1>
-<p>أرسلنا لك إيميل تأكيد. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
-<a href="https://wa.me/966579429980">راسلنا واتساب</a><a class="g" href="/">رجوع للموقع</a></main></body></html>
+<div class="ref" id="refbox" hidden><small>رقم طلبك</small><b id="ref"></b><button type="button" id="copy">نسخ الرقم</button></div>
+<p id="msg">أرسلنا لك إيميل تأكيد. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
+<a id="wa" href="https://wa.me/966579429980">راسلنا واتساب</a><a class="g" href="/">رجوع للموقع</a></main>
+<script>
+(function(){
+  var ref=new URLSearchParams(location.search).get('ref');
+  if(!ref){try{ref=sessionStorage.getItem('kjr_ref')}catch(e){}}
+  if(!ref||!/^KJR-\d{6}-[A-Z0-9]{3}$/.test(ref)) return;
+  document.getElementById('ref').textContent=ref;
+  document.getElementById('refbox').hidden=false;
+  document.getElementById('msg').textContent='احتفظ بالرقم للمتابعة، وأرسلناه لك في إيميل التأكيد. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل.';
+  document.getElementById('wa').href='https://wa.me/966579429980?text='+encodeURIComponent('السلام عليكم، بخصوص طلبي رقم '+ref);
+  document.getElementById('copy').onclick=function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(ref):Promise.reject()).then(function(){b.textContent='تم النسخ'}).catch(function(){b.textContent=ref})};
+})();
+</script></body></html>

@@ -229,10 +229,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="wrap req">
       <aside>
         <h2>اطلب إعلانك<span class="en">Request a project</span></h2>
-        <p>عبّي الطلب ويوصلنا على البريد مباشرة. بيوصلك إيميل تأكيد إن طلبك استلمناه، ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
+        <p>عبّي الطلب ويوصلنا على البريد مباشرة. يطلع لك رقم طلب تتابع فيه، ويوصلك إيميل تأكيد فيه الرقم، ونرجع لك بفكرة وسعر خلال يوم عمل.</p>
         <p class="privacy">نستخدم بياناتك للرد على طلبك فقط، وما نشاركها مع أي جهة.</p>
       </aside>
-      <form action="https://formsubmit.co/kjrstudio.ksa@gmail.com" method="POST">
+      <form id="reqform" action="https://formsubmit.co/kjrstudio.ksa@gmail.com" method="POST">
+        <input type="hidden" name="رقم الطلب" id="ref">
         <input type="hidden" name="_subject" value="طلب جديد من موقع KJR Studio">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
@@ -295,6 +296,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </footer>
 <script>
 addEventListener('load',()=>document.body.classList.add('loaded'));
+(function(){
+  var f=document.getElementById('reqform'); if(!f) return;
+  var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  function mkRef(){
+    var d=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'2-digit',month:'2-digit',day:'2-digit'}).format(new Date()).replace(/-/g,'');
+    var r='',b=new Uint32Array(3); crypto.getRandomValues(b);
+    for(var i=0;i<3;i++) r+=A[b[i]%A.length];
+    return 'KJR-'+d+'-'+r;
+  }
+  f.addEventListener('submit',function(){
+    var ref=mkRef(), biz=(f.elements['النشاط'].value||'').trim();
+    f.elements['رقم الطلب'].value=ref;
+    f.elements['_subject'].value='طلب جديد '+ref+(biz?' | '+biz:'');
+    f.elements['_autoresponse'].value='أهلا بك، استلمنا طلبك في KJR Studio.\n\nرقم طلبك: '+ref+'\n\nاحتفظ بالرقم للمتابعة. بنراجع التفاصيل ونرجع لك بفكرة وسعر خلال يوم عمل. لو عندك أي إضافة، رد على هذا الإيميل أو راسلنا واتساب على +966 57 942 9980 واذكر رقم الطلب.';
+    f.elements['_next'].value=location.origin+'/thanks.html?ref='+encodeURIComponent(ref);
+    try{sessionStorage.setItem('kjr_ref',ref)}catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
