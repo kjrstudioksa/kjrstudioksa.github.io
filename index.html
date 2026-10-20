@@ -10,6 +10,10 @@
 <meta property="og:image" content="https://kjrstudioksa.com/sarmad.jpg">
 <meta property="og:url" content="https://kjrstudioksa.com/">
 <meta name="theme-color" content="#0E0C09">
+<link rel="canonical" href="https://kjrstudioksa.com/">
+<link rel="alternate" hreflang="ar" href="https://kjrstudioksa.com/">
+<link rel="alternate" hreflang="en" href="https://kjrstudioksa.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://kjrstudioksa.com/">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,6 +190,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .float-wa{display:flex;position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:calc(16px + env(safe-area-inset-left,0px));z-index:25;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--night);align-items:center;justify-content:center;box-shadow:0 8px 24px #000a}
   .float-wa svg{width:28px;height:28px}
 }
+.lang{font-size:14px;font-weight:500;text-decoration:none;color:var(--sand-2);border:1px solid #3a3328;border-radius:999px;padding:8px 14px;line-height:1;letter-spacing:.06em}
+.lang:hover{border-color:var(--gold);color:var(--sand)}
+.nav-r{display:flex;align-items:center;gap:12px}
 </style>
 </head>
 <body>
@@ -195,7 +202,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <nav class="links" aria-label="أقسام الموقع">
       <a href="#work">أعمالنا</a><a href="#services">الخدمات</a><a href="#how">كيف نشتغل</a><a href="#about">من نحن</a>
     </nav>
-    <a class="btn" href="#request">اطلب إعلانك</a>
+    <div class="nav-r">
+      <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
+      <a class="btn" href="#request">اطلب إعلانك</a>
+    </div>
   </div>
 </header>
 
