@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KJR Studio | Cinematic AI Advertising</title>
+<meta name="description" content="KJR Studio creates cinema-grade ads and brand films with AI, from Jeddah, Saudi Arabia. Logo intros, product ads, social reels and executive intro videos.">
+<meta property="og:title" content="KJR Studio">
+<meta property="og:description" content="Cinematic ads, in days instead of months.">
+<meta property="og:image" content="https://kjrstudioksa.com/sarmad.jpg">
+<meta property="og:url" content="https://kjrstudioksa.com/en/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#0E0C09">
+<link rel="canonical" href="https://kjrstudioksa.com/en/">
+<link rel="alternate" hreflang="ar" href="https://kjrstudioksa.com/">
+<link rel="alternate" hreflang="en" href="https://kjrstudioksa.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://kjrstudioksa.com/">
+<link rel="icon" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: full-bleed film still as the opening title card, then a ledger of facts, work reel, services, founder, process, request form. Single dark "screening room" look by design. */
+:root{
+  --night:#0E0C09; --night-2:#16130F; --night-3:#1F1B15; --rule:#2B261E;
+  --sand:#EFE6D2; --sand-2:#CFC4AE; --dust:#9A8F7B;
+  --gold:#C9A24A; --gold-2:#E0BC66; --gold-a:#C9A24A26;
+  --font:"Alexandria",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --pad:max(16px,env(safe-area-inset-left,0px));
+  --pad-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--sand);font-family:var(--font);font-weight:300;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-left:var(--pad);padding-right:var(--pad-r)}
+h1,h2,h3{font-weight:700;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.02em}
+.eyebrow{display:block;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.eyebrow .en{direction:ltr;unicode-bidi:isolate;letter-spacing:.2em;margin-inline-start:12px;padding-inline-start:12px;border-inline-start:1px solid var(--rule);color:var(--dust)}
+h2{font-size:clamp(30px,4.2vw,48px)}
+.lead{color:var(--sand-2);max-width:58ch;margin:18px 0 0;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--night);text-decoration:none;font-weight:600;font-family:inherit;font-size:16px;line-height:1;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--gold-2)}
+.btn.line{background:transparent;color:var(--sand);box-shadow:inset 0 0 0 1px #ffffff3d}
+.btn.line:hover{box-shadow:inset 0 0 0 1px var(--gold)}
+.btn svg{width:20px;height:20px}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+/* nav */
+.nav{position:fixed;top:0;inset-inline:0;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .3s,box-shadow .3s}
+.nav.solid{background:#0E0C09e6;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.12em;font-size:15px}
+.brand img{width:36px;height:36px;border-radius:8px}
+.links{display:flex;gap:30px;font-size:15px}
+.links a{text-decoration:none;color:var(--sand-2)}
+.links a:hover{color:var(--sand)}
+.nav .btn{padding:11px 20px;font-size:15px}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(to top,var(--night) 4%,#0E0C09d9 28%,#0E0C0966 55%,#0E0C0926 75%,#0E0C0980 100%),
+  linear-gradient(to right,#0E0C09b3 0%,transparent 62%)}
+.hero .wrap{padding-block:140px 72px;display:grid;gap:0}
+.hero h1{font-size:clamp(40px,6vw,78px);max-width:16ch}
+.hero p{font-size:clamp(17px,1.6vw,20px);color:var(--sand-2);max-width:44ch;margin:22px 0 32px}
+.hero .row{display:flex;gap:14px;flex-wrap:wrap}
+.credit{position:absolute;bottom:22px;right:var(--pad-r);font-size:12px;letter-spacing:.16em;color:var(--dust);direction:ltr}
+.credit b{color:var(--sand-2);font-weight:500}
+
+/* facts ledger */
+.facts{border-block:1px solid var(--rule);background:var(--night-2)}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.facts li{padding:22px 24px;border-inline-start:1px solid var(--rule);display:flex;flex-direction:column;gap:2px}
+.facts li:first-child{border-inline-start:0;padding-inline-start:0}
+.facts b{font-weight:700;font-size:20px}
+.facts span{color:var(--dust);font-size:14px}
+
+section{padding-block:104px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.head .lead{margin-top:0;max-width:44ch}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:44px}
+.tile{position:relative;background:var(--night-2);border-radius:14px;overflow:hidden;min-width:0}
+.tile video{width:100%;height:100%;object-fit:cover;background:#000}
+.tile .cap{position:absolute;inset-inline:0;top:0;padding:16px 20px 44px;background:linear-gradient(to bottom,#000000c7,transparent);pointer-events:none;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.tile .cap b{font-weight:700;font-size:18px;display:block;line-height:1.4}
+.tile .cap span{color:var(--sand-2);font-size:13px}
+.tile .cap em{font-style:normal;font-size:12px;letter-spacing:.12em;color:var(--gold);direction:ltr;white-space:nowrap}
+.tile.playing .cap{opacity:0;transition:opacity .3s}
+.t-sarmad{grid-column:span 12;aspect-ratio:2.39/1}
+.t-jamr{grid-column:span 6;aspect-ratio:16/9}
+.t-reel{grid-column:span 3;aspect-ratio:9/16}
+.note{color:var(--dust);font-size:14px;margin-top:16px}
+
+/* services */
+.services{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--rule)}
+.services li{padding:30px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:baseline}
+.services li:nth-child(odd){padding-inline-end:40px;border-inline-end:1px solid var(--rule)}
+.services li:nth-child(even){padding-inline-start:40px}
+.services h3{font-size:24px;font-weight:700}
+.services .len{color:var(--gold);font-size:14px;font-weight:500;white-space:nowrap}
+.services p{grid-column:1/-1;margin:0;color:var(--sand-2);font-size:16px;max-width:44ch}
+
+/* founder */
+.founder{background:var(--night-2);border-block:1px solid var(--rule)}
+.founder .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.founder .film{border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
+.founder .film video{width:100%;height:100%;object-fit:cover}
+.founder h2{font-size:clamp(28px,3.2vw,40px)}
+.founder blockquote{margin:22px 0 0;font-size:clamp(20px,2vw,24px);font-weight:500;line-height:1.7;color:var(--sand)}
+.founder .sig{margin-top:18px;color:var(--dust);font-size:15px}
+.founder .sig b{color:var(--sand);font-weight:600}
+
+/* steps */
+.steps{list-style:none;counter-reset:s;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.steps li{counter-increment:s;background:var(--night-2);border:1px solid var(--rule);border-radius:14px;padding:28px 26px}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-weight:800;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px}
+.steps h3{font-size:21px;font-weight:700}
+.steps p{margin:8px 0 0;color:var(--sand-2);font-size:16px}
+
+/* request form */
+.req{display:grid;grid-template-columns:1fr 1.35fr;gap:64px;align-items:start}
+.req aside p{color:var(--sand-2);margin:18px 0 0;max-width:40ch}
+.req aside .privacy{color:var(--dust);font-size:14px;margin-top:22px}
+.req aside .alt{margin-top:28px;display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--dust)}
+.req aside .alt a{color:var(--sand);text-decoration:none;border-bottom:1px solid var(--gold-a);align-self:flex-start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;background:var(--night-2);border:1px solid var(--rule);border-radius:18px;padding:32px}
+.f{display:grid;gap:8px;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-size:14px;font-weight:500;color:var(--sand-2)}
+label small{color:var(--dust);font-weight:300}
+input,select,textarea{font:inherit;font-size:16px;font-weight:400;color:var(--sand);background:var(--night);border:1px solid #3a3328;border-radius:10px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a)}
+input[type=tel],input[type=email],input[type=url]{direction:ltr;text-align:left}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:300;color:var(--sand-2)}
+.consent input{width:18px;height:18px;margin-top:5px;accent-color:var(--gold);flex:none}
+form .btn{justify-self:start}
+#formmsg{margin:0;font-size:15px;color:var(--sand-2)}
+.hp{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%);pointer-events:none}
+
+/* close */
+.close{text-align:center;padding-block:120px;background:
+  radial-gradient(60% 80% at 50% 100%,#C9A24A1f,transparent 70%)}
+.close h2{font-size:clamp(32px,5vw,58px);max-width:18ch;margin-inline:auto}
+.close .lead{margin:18px auto 0}
+.close .row{display:flex;justify-content:center;margin-top:34px}
+.contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.chip{display:inline-flex;align-items:center;text-decoration:none;border:1px solid #3a3328;border-radius:999px;padding:10px 18px;font-size:15px;transition:border-color .2s}
+.chip:hover{border-color:var(--gold)}
+footer{border-top:1px solid var(--rule);padding-block:28px calc(40px + env(safe-area-inset-bottom,0px));color:var(--dust);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.float-wa{display:none}
+
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+  .rise.d1{animation-delay:.12s}.rise.d2{animation-delay:.24s}.rise.d3{animation-delay:.36s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:900px){
+  .links{display:none}
+  .facts ul{grid-template-columns:repeat(2,1fr)}
+  .facts li:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--rule)}
+  .founder .wrap{grid-template-columns:1fr;gap:28px}
+  .req{grid-template-columns:1fr;gap:28px}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  section{padding-block:72px}
+  .hero{min-height:88vh}
+  .hero .wrap{padding-block:120px 64px}
+  .hero video,.hero .poster{object-position:58% 40%}
+  .credit{display:none}
+  .t-sarmad{aspect-ratio:16/10}
+  .t-jamr{grid-column:span 12}
+  .t-reel{grid-column:span 6}
+  .services{grid-template-columns:1fr}
+  .services li:nth-child(n){padding-inline:0;border-inline-end:0}
+  form{grid-template-columns:1fr;padding:22px}
+  .nav .btn{display:none}
+  .float-wa{display:flex;position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:calc(16px + env(safe-area-inset-right,0px));z-index:25;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--night);align-items:center;justify-content:center;box-shadow:0 8px 24px #000a}
+  .float-wa svg{width:28px;height:28px}
+}
+
+.lang{font-size:14px;font-weight:500;text-decoration:none;color:var(--sand-2);border:1px solid #3a3328;border-radius:999px;padding:8px 14px;line-height:1}
+.lang:hover{border-color:var(--gold);color:var(--sand)}
+.nav-r{display:flex;align-items:center;gap:12px}
+@media (max-width:700px){.nav .lang{display:inline-flex}.facts b{font-size:17px}.eyebrow{font-size:12px;letter-spacing:.06em}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="KJR Studio"><img src="../logo.png" alt=""><span>KJR STUDIO</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#how">How it works</a><a href="#about">About</a>
+    </nav>
+    <div class="nav-r">
+      <a class="lang" href="/" hreflang="ar" lang="ar">عربي</a>
+      <a class="btn" href="#request">Request your ad</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Intro">
+    <img class="poster" src="../sarmad.jpg" alt="">
+    <video id="herovid" src="../sarmad.mp4" poster="../sarmad.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Footage from the Sarmad perfume film"></video>
+    <div class="wrap">
+      <span class="eyebrow rise">AI advertising studio · Jeddah, Saudi Arabia</span>
+      <h1 class="rise d1">Cinematic ads, in days instead of months</h1>
+      <p class="rise d2">We create cinema-grade ads and brand films with AI: concept, visuals, sound and edit. No film crew, no production budget.</p>
+      <div class="row rise d3">
+        <a class="btn" href="#request">Request your ad</a>
+        <a class="btn line" href="#work">See our work</a>
+      </div>
+    </div>
+    <div class="credit"><b>SARMAD</b> · PERFUME FILM · 60s</div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap">
+      <ul>
+        <li><b>Days, not months</b><span>From idea to delivery</span></li>
+        <li><b>Every platform</b><span>Vertical 9:16 and wide 16:9</span></li>
+        <li><b>Two revisions</b><span>Included in every project</span></li>
+        <li><b>Licensed</b><span>Saudi Freelance Permit</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Selected work</span><h2>See the style before you order</h2></div>
+        <p class="lead">Tap any piece to play it with sound.</p>
+      </div>
+      <div class="work">
+        <div class="tile t-sarmad">
+          <video src="../sarmad.mp4" poster="../sarmad.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>Sarmad, perfume film</b><span>Product film, 60 seconds</span></div><em>PRODUCT FILM</em></div>
+        </div>
+        <div class="tile t-jamr">
+          <video src="../jamr.mp4" poster="../jamr.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>Jamr, logo intro</b><span>Logo intro, 10 seconds</span></div><em>LOGO INTRO</em></div>
+        </div>
+        <div class="tile t-reel">
+          <video src="../reel1.mp4" poster="../reel1.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>From static logo to intro</b><span>Before and after</span></div></div>
+        </div>
+        <div class="tile t-reel">
+          <video src="../reel2.mp4" poster="../reel2.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>From product photo to ad</b><span>Before and after</span></div></div>
+        </div>
+      </div>
+      <p class="note">Sarmad and Jamr are concept brands we created to showcase the studio's style.</p>
+    </div>
+  </section>
+
+  <section id="services" style="padding-top:24px">
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <h2>What we can make for your brand</h2>
+      <ul class="services">
+        <li><h3>Cinematic logo intro</h3><span class="len">10 seconds</span><p>Your logo becomes a motion intro that opens your videos and ads.</p></li>
+        <li><h3>Product ad</h3><span class="len">30 to 60 seconds</span><p>From a single product photo, we build a complete ad with scenes, sound and music.</p></li>
+        <li><h3>Social media reels</h3><span class="len">Vertical 9:16</span><p>Short-form clips ready for TikTok, Instagram and Snapchat.</p></li>
+        <li><h3>Executive intro video</h3><span class="len">45 to 60 seconds</span><p>A video in your own voice and likeness that introduces you on LinkedIn and in presentations.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="founder" id="about">
+    <div class="wrap">
+      <div class="film"><video src="../intro.mp4" poster="../intro.jpg" controls preload="none" playsinline aria-label="Intro video by Khaled Al Rawaf, founder of KJR Studio"></video></div>
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>A Jeddah studio with a film-production mindset</h2>
+        <blockquote>We combine deep technology experience with the latest AI tools, so small businesses and companies across Saudi Arabia get agency-quality ads in less time and at lower cost.</blockquote>
+        <p class="sig"><b>Khaled Al Rawaf</b>, Founder, KJR Studio</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps to your finished ad</h2>
+      <ol class="steps">
+        <li><h3>Send your request</h3><p>Fill in the form or message us on WhatsApp: your logo or product photo, plus a line about your business.</p></li>
+        <li><h3>Agree on concept and price</h3><p>We send you the scene direction and style, with a clear quote, before any work begins.</p></li>
+        <li><h3>Receive your ad</h3><p>A first cut for review, two rounds of revisions, then the final file ready to publish.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="request" style="padding-top:24px">
+    <div class="wrap req">
+      <aside>
+        <span class="eyebrow">Request your ad</span>
+        <h2>Let's get started</h2>
+        <p>Send your request and it reaches us directly. You'll get a request number to track it, and we'll reply by email or WhatsApp with a concept and quote within one business day.</p>
+        <p class="privacy">We use your details only to respond to your request, and never share them with anyone.</p>
+        <div class="alt">Prefer WhatsApp?<a href="https://wa.me/966579429980" target="_blank" rel="noopener">+966 57 942 9980</a></div>
+      </aside>
+      <form id="reqform" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="63ac3c55-e959-455c-823f-6d3b396f9010">
+        <input type="hidden" name="رقم الطلب" id="ref">
+        <input type="hidden" name="اللغة" value="English">
+        <input type="hidden" name="subject" value="طلب جديد من موقع KJR Studio (EN)">
+        <input type="hidden" name="from_name" value="موقع KJR Studio">
+        <input type="hidden" name="redirect" value="https://kjrstudioksa.com/en/thanks.html">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="f"><label for="name">Name</label><input id="name" name="الاسم" required autocomplete="name"></div>
+        <div class="f"><label for="biz">Business or company name</label><input id="biz" name="النشاط" required autocomplete="organization"></div>
+        <div class="f"><label for="phone">Mobile (WhatsApp)</label><input id="phone" type="tel" name="الجوال" required placeholder="+966 5x xxx xxxx" autocomplete="tel"></div>
+        <div class="f"><label for="email">Email</label><input id="email" type="email" name="email" required autocomplete="email"></div>
+        <div class="f"><label for="svc">Service</label>
+          <select id="svc" name="الخدمة" required>
+            <option value="" disabled selected>Choose a service</option>
+            <option value="مقدمة شعار سينمائية">Cinematic logo intro</option>
+            <option value="إعلان منتج">Product ad</option>
+            <option value="ريلز لوسائل التواصل">Social media reels</option>
+            <option value="فيديو تعريفي للتنفيذيين">Executive intro video</option>
+            <option value="شي ثاني">Something else</option>
+          </select></div>
+        <div class="f"><label for="when">When do you need it?</label>
+          <select id="when" name="موعد التسليم">
+            <option value="خلال أسبوع">Within a week</option>
+            <option value="خلال أسبوعين">Within two weeks</option>
+            <option value="خلال شهر">Within a month</option>
+            <option value="ما عندي موعد محدد">No fixed date</option>
+          </select></div>
+        <div class="f full"><label for="brief">What exactly do you need? <small>(the idea, the audience, where you'll publish it)</small></label><textarea id="brief" name="التفاصيل" required></textarea></div>
+        <div class="f full"><label for="files">Link to your logo or product photos <small>(Google Drive or WeTransfer, optional)</small></label><input id="files" type="url" name="رابط الملفات" placeholder="https://"></div>
+        <label class="consent"><input type="checkbox" id="consent" required> I agree to my details being used to contact me about this request.</label>
+        <button class="btn" type="submit" id="sendbtn">Send request</button>
+        <p class="f full" id="formmsg" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="close" id="contact">
+    <div class="wrap">
+      <h2>Send us your logo, and we'll turn it into a cinematic intro</h2>
+      <p class="lead">WhatsApp is fastest. We reply the same day.</p>
+      <div class="row">
+        <a class="btn" href="https://wa.me/966579429980" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>Message us on WhatsApp</a>
+      </div>
+      <div class="contact-row">
+        <a class="chip" href="tel:+966579429980">+966 57 942 9980</a>
+        <a class="chip" href="mailto:kjrstudio.ksa@gmail.com">kjrstudio.ksa@gmail.com</a>
+        <a class="chip" href="https://www.instagram.com/kjrstudioksa" target="_blank" rel="noopener">Instagram</a>
+        <a class="chip" href="https://www.tiktok.com/@kjrstudioksa" target="_blank" rel="noopener">TikTok</a>
+        <a class="chip" href="https://www.youtube.com/@KJRStudioKSA" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </section>
+  <a class="float-wa" href="https://wa.me/966579429980" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>KJR Studio, Jeddah, Saudi Arabia</span>
+    <span>Licensed under the Saudi Freelance Permit</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('solid',window.scrollY>40)}
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var hv=document.getElementById('herovid');
+  if(hv&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.pause()}
+  // one work video at a time; hide caption while playing
+  var vids=[].slice.call(document.querySelectorAll('.tile video'));
+  vids.forEach(function(v){
+    v.addEventListener('play',function(){vids.forEach(function(o){if(o!==v)o.pause()});v.parentNode.classList.add('playing');if(hv)hv.pause()});
+    v.addEventListener('pause',function(){v.parentNode.classList.remove('playing')});
+  });
+})();
+(function(){
+  var f=document.getElementById('reqform'); if(!f) return;
+  var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', WA='966579429980';
+  var btn=document.getElementById('sendbtn'), msg=document.getElementById('formmsg');
+  function mkRef(){
+    var d=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'2-digit',month:'2-digit',day:'2-digit'}).format(new Date()).replace(/-/g,'');
+    var r='',b=new Uint32Array(3); crypto.getRandomValues(b);
+    for(var i=0;i<3;i++) r+=A[b[i]%A.length];
+    return 'KJR-'+d+'-'+r;
+  }
+  function v(n){var e=f.elements[n];return e?(e.value||'').trim():''}
+  function waText(ref){
+    var s=f.elements['الخدمة'],w=f.elements['موعد التسليم'];return 'Hello, new request '+ref+'\nName: '+v('الاسم')+'\nBusiness: '+v('النشاط')+'\nService: '+(s.selectedIndex>0?s.options[s.selectedIndex].text:'')+'\nTimeline: '+w.options[w.selectedIndex].text+'\nDetails: '+v('التفاصيل');
+  }
+  f.addEventListener('submit',function(ev){
+    var ref=v('رقم الطلب')||mkRef(), biz=v('النشاط');
+    f.elements['رقم الطلب'].value=ref;
+    f.elements['subject'].value='طلب جديد '+ref+(biz?' | '+biz:'')+' (EN)';
+    f.elements['redirect'].value=location.origin+'/en/thanks.html?ref='+encodeURIComponent(ref);
+    try{sessionStorage.setItem('kjr_ref',ref)}catch(e){}
+    if(!window.fetch||!window.FormData) return; /* fallback: normal POST */
+    ev.preventDefault();
+    if(f.elements['botcheck'] && f.elements['botcheck'].checked) return;
+    btn.disabled=true; btn.textContent='Sending...'; msg.hidden=false; msg.textContent='Sending your request...';
+    var ctl=window.AbortController?new AbortController():null, t=setTimeout(function(){ctl&&ctl.abort()},30000);
+    var data={}; new FormData(f).forEach(function(val,key){if(key!=='botcheck') data[key]=val});
+    fetch(f.action,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json',Accept:'application/json'},signal:ctl?ctl.signal:undefined})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||!(j.success===true||String(j.success)==='true')) throw new Error(j.message||r.status);})})
+      .then(function(){clearTimeout(t); location.href='thanks.html?ref='+encodeURIComponent(ref);})
+      .catch(function(){
+        clearTimeout(t); btn.disabled=false; btn.textContent='Send request';
+        msg.hidden=false;
+        msg.innerHTML='We couldn\'t send your request from the site right now. Your request number is <b>'+ref+'</b>. Send it to us on WhatsApp in one tap, with the details filled in for you: <a class="btn" style="margin-top:10px" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(waText(ref))+'">Send via WhatsApp</a>';
+      });
+  });
+})();
+</script>
+</body>
+</html>
