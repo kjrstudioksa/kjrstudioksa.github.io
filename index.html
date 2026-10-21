@@ -17,7 +17,7 @@
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: full-bleed film still as the opening title card, then a ledger of facts, work reel, services, founder, process, request form. Single dark "screening room" look by design. */
 :root{
@@ -36,12 +36,12 @@ a{color:inherit}
 img,video{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 .wrap{width:100%;max-width:1200px;margin-inline:auto;padding-left:var(--pad);padding-right:var(--pad-r)}
-h1,h2,h3{font-weight:800;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h1,h2,h3{font-weight:600;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.005em}
 .eyebrow{display:block;font-size:13px;font-weight:500;letter-spacing:.14em;color:var(--gold);margin-bottom:14px}
 .eyebrow .en{direction:ltr;unicode-bidi:isolate;letter-spacing:.2em;margin-inline-start:12px;padding-inline-start:12px;border-inline-start:1px solid var(--rule);color:var(--dust)}
 h2{font-size:clamp(30px,4.2vw,48px)}
 .lead{color:var(--sand-2);max-width:58ch;margin:18px 0 0;font-size:18px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--night);text-decoration:none;font-weight:600;font-family:inherit;font-size:16px;line-height:1;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--night);text-decoration:none;font-weight:500;font-family:inherit;font-size:16px;line-height:1;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;transition:background .2s,transform .2s}
 .btn:hover{background:var(--gold-2)}
 .btn.line{background:transparent;color:var(--sand);box-shadow:inset 0 0 0 1px #ffffff3d}
 .btn.line:hover{box-shadow:inset 0 0 0 1px var(--gold)}
@@ -52,7 +52,7 @@ h2{font-size:clamp(30px,4.2vw,48px)}
 .nav{position:fixed;top:0;inset-inline:0;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .3s,box-shadow .3s}
 .nav.solid{background:#0E0C09e6;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--rule)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.12em;font-size:15px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:.12em;font-size:15px}
 .brand img{width:36px;height:36px;border-radius:8px}
 .links{display:flex;gap:30px;font-size:15px}
 .links a{text-decoration:none;color:var(--sand-2)}
@@ -77,7 +77,7 @@ h2{font-size:clamp(30px,4.2vw,48px)}
 .facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
 .facts li{padding:22px 24px;border-inline-start:1px solid var(--rule);display:flex;flex-direction:column;gap:2px}
 .facts li:first-child{border-inline-start:0;padding-inline-start:0}
-.facts b{font-weight:700;font-size:20px}
+.facts b{font-weight:500;font-size:20px}
 .facts span{color:var(--dust);font-size:14px}
 
 section{padding-block:104px}
@@ -89,7 +89,7 @@ section{padding-block:104px}
 .tile{position:relative;background:var(--night-2);border-radius:14px;overflow:hidden;min-width:0}
 .tile video{width:100%;height:100%;object-fit:cover;background:#000}
 .tile .cap{position:absolute;inset-inline:0;top:0;padding:16px 20px 44px;background:linear-gradient(to bottom,#000000c7,transparent);pointer-events:none;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.tile .cap b{font-weight:700;font-size:18px;display:block;line-height:1.4}
+.tile .cap b{font-weight:500;font-size:18px;display:block;line-height:1.4}
 .tile .cap span{color:var(--sand-2);font-size:13px}
 .tile .cap em{font-style:normal;font-size:12px;letter-spacing:.12em;color:var(--gold);direction:ltr;white-space:nowrap}
 .tile.playing .cap{opacity:0;transition:opacity .3s}
@@ -103,7 +103,7 @@ section{padding-block:104px}
 .services li{padding:30px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:baseline}
 .services li:nth-child(odd){padding-inline-end:40px;border-inline-end:1px solid var(--rule)}
 .services li:nth-child(even){padding-inline-start:40px}
-.services h3{font-size:24px;font-weight:700}
+.services h3{font-size:24px;font-weight:500}
 .services .len{color:var(--gold);font-size:14px;font-weight:500;white-space:nowrap}
 .services p{grid-column:1/-1;margin:0;color:var(--sand-2);font-size:16px;max-width:44ch}
 
@@ -113,15 +113,15 @@ section{padding-block:104px}
 .founder .film{border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
 .founder .film video{width:100%;height:100%;object-fit:cover}
 .founder h2{font-size:clamp(28px,3.2vw,40px)}
-.founder blockquote{margin:22px 0 0;font-size:clamp(20px,2vw,24px);font-weight:500;line-height:1.7;color:var(--sand)}
+.founder blockquote{margin:22px 0 0;font-size:clamp(20px,2vw,24px);font-weight:400;line-height:1.7;color:var(--sand)}
 .founder .sig{margin-top:18px;color:var(--dust);font-size:15px}
-.founder .sig b{color:var(--sand);font-weight:600}
+.founder .sig b{color:var(--sand);font-weight:500}
 
 /* steps */
 .steps{list-style:none;counter-reset:s;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .steps li{counter-increment:s;background:var(--night-2);border:1px solid var(--rule);border-radius:14px;padding:28px 26px}
-.steps li::before{content:counter(s,arabic-indic);display:block;font-weight:800;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px}
-.steps h3{font-size:21px;font-weight:700}
+.steps li::before{content:counter(s,arabic-indic);display:block;font-weight:500;font-size:44px;color:var(--gold);line-height:1;margin-bottom:18px}
+.steps h3{font-size:21px;font-weight:500}
 .steps p{margin:8px 0 0;color:var(--sand-2);font-size:16px}
 
 /* request form */
@@ -193,6 +193,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .lang{font-size:14px;font-weight:500;text-decoration:none;color:var(--sand-2);border:1px solid #3a3328;border-radius:999px;padding:8px 14px;line-height:1;letter-spacing:.06em}
 .lang:hover{border-color:var(--gold);color:var(--sand)}
 .nav-r{display:flex;align-items:center;gap:12px}
+
+/* uploads */
+.drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;border:1.5px dashed #4a4134;border-radius:12px;padding:22px 16px;background:var(--night);cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-color:var(--gold);background:#C9A24A0d}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop b{font-weight:500;font-size:15px;color:var(--sand)}
+.drop span{font-size:13px;color:var(--dust)}
+.drop svg{width:26px;height:26px;color:var(--gold)}
+.flist{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.flist li{display:flex;align-items:center;gap:10px;background:var(--night);border:1px solid var(--rule);border-radius:10px;padding:9px 12px;font-size:14px}
+.flist .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:start;unicode-bidi:plaintext}
+.flist .sz{color:var(--dust);font-size:12px;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.flist .st{font-size:12px;color:var(--gold);white-space:nowrap}
+.flist .st.err{color:#E2836B}
+.flist button{background:none;border:0;color:var(--dust);cursor:pointer;font-size:18px;line-height:1;padding:0 2px}
+.flist button:hover{color:var(--sand)}
+.linkalt{margin-top:10px}
+.linkalt summary{cursor:pointer;font-size:13px;color:var(--dust);list-style:none}
+.linkalt summary::-webkit-details-marker{display:none}
+.linkalt input{margin-top:8px}
 </style>
 </head>
 <body>
@@ -339,7 +359,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <option>ما عندي موعد محدد</option>
           </select></div>
         <div class="f full"><label for="brief">وش تبغى بالضبط؟ <small>(الفكرة، الجمهور، وين بتنشره)</small></label><textarea id="brief" name="التفاصيل" required></textarea></div>
-        <div class="f full"><label for="files">رابط الشعار أو صور المنتج <small>(Google Drive أو WeTransfer، اختياري)</small></label><input id="files" type="url" name="رابط الملفات" placeholder="https://"></div>
+        <div class="f full"><label for="upfiles">ارفع الشعار أو الصور <small>(اختياري، أكثر من ملف)</small></label><div class="drop" id="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><b>اضغط لاختيار الملفات أو اسحبها هنا</b><span>صور، فيديو، PDF، AI، SVG أو ZIP. حتى 10 ملفات، كل ملف لين 25 ميقا</span><input id="upfiles" type="file" multiple accept="image/*,video/*,.pdf,.ai,.eps,.svg,.psd,.zip"></div><ul class="flist" id="flist" aria-live="polite"></ul><details class="linkalt"><summary>أو عندك رابط (Google Drive أو WeTransfer)؟</summary><input id="files" type="url" name="رابط الملفات" placeholder="https://" aria-label="link"></details><input type="hidden" name="الملفات المرفوعة" id="upsummary"></div>
         <label class="consent"><input type="checkbox" id="consent" required> أوافق على استخدام بياناتي للتواصل معي بخصوص هذا الطلب.</label>
         <button class="btn" type="submit" id="sendbtn">أرسل الطلب</button>
         <p class="f full" id="formmsg" role="status" aria-live="polite" hidden></p>
@@ -386,6 +406,61 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     v.addEventListener('pause',function(){v.parentNode.classList.remove('playing')});
   });
 })();
+
+(function(){
+  var UPLOAD_URL='https://script.google.com/macros/s/AKfycbxbYXFFkExEFwNzVknS2aJ1c7GLxhFJOIfbluNzbVrkvgdy7fnW-mdkmYwv8fPycQ_a/exec';
+  var L={"q": "بالانتظار", "up": "يرفع...", "ok": "تم الرفع", "err": "ما ترفع", "big": "أكبر من 25 ميقا", "max": "الحد 10 ملفات", "sending": "جاري رفع الملفات", "rm": "حذف"};
+  var inp=document.getElementById('upfiles'), list=document.getElementById('flist'), drop=document.getElementById('drop');
+  if(!inp) return;
+  var files=[];
+  function fmt(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+  function render(){
+    list.innerHTML='';
+    files.forEach(function(it,i){
+      var li=document.createElement('li');
+      li.innerHTML='<span class="nm"></span><span class="sz">'+fmt(it.f.size)+'</span><span class="st'+(it.state==='err'||it.state==='big'?' err':'')+'">'+(L[it.state]||'')+'</span>';
+      li.querySelector('.nm').textContent=it.f.name;
+      if(it.state==='q'||it.state==='big'||it.state==='err'){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',L.rm);b.textContent='\u00d7';b.onclick=function(){files.splice(i,1);render()};li.appendChild(b)}
+      list.appendChild(li);
+    });
+  }
+  function add(fl){
+    for(var i=0;i<fl.length;i++){
+      if(files.length>=10){alert(L.max);break}
+      var f=fl[i]; files.push({f:f,state:f.size>26214400?'big':'q'});
+    }
+    render(); inp.value='';
+  }
+  inp.addEventListener('change',function(){add(inp.files)});
+  ['dragenter','dragover'].forEach(function(t){drop.addEventListener(t,function(e){e.preventDefault();drop.classList.add('over')})});
+  ['dragleave','drop'].forEach(function(t){drop.addEventListener(t,function(e){e.preventDefault();drop.classList.remove('over')})});
+  drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files)add(e.dataTransfer.files)});
+  function b64(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(String(r.result).split(',')[1]||'')};r.onerror=rej;r.readAsDataURL(f)})}
+  function one(it,ref){
+    it.state='up'; render();
+    return b64(it.f).then(function(d){
+      return fetch(UPLOAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({ref:ref,name:it.f.name,type:it.f.type||'application/octet-stream',data:d})});
+    }).then(function(r){return r.json()}).then(function(j){
+      if(!j||!j.ok) throw new Error(j&&j.error||'x');
+      it.state='ok'; it.url=j.url; it.folder=j.folderUrl; render();
+    }).catch(function(){it.state='err'; render();});
+  }
+  /* called by the form before sending: uploads queued files, returns a summary text for the email */
+  window.kjrUpload=function(ref,onStatus){
+    var q=files.filter(function(it){return it.state==='q'||it.state==='err'});
+    if(!files.length) return Promise.resolve('');
+    var p=Promise.resolve();
+    q.forEach(function(it,k){p=p.then(function(){onStatus&&onStatus(L.sending+' ('+(k+1)+'/'+q.length+')');return one(it,ref)})});
+    return p.then(function(){
+      var ok=files.filter(function(it){return it.state==='ok'}), bad=files.filter(function(it){return it.state!=='ok'});
+      var s='';
+      if(ok.length) s+='مجلد الملفات: '+ok[0].folder+'\n'+ok.map(function(it){return '- '+it.f.name+': '+it.url}).join('\n');
+      if(bad.length) s+=(s?'\n':'')+'لم تُرفع: '+bad.map(function(it){return it.f.name}).join('، ');
+      window.kjrUploadFailed=bad.length;
+      return s;
+    });
+  };
+})();
 (function(){
   var f=document.getElementById('reqform'); if(!f) return;
   var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', WA='966579429980';
@@ -410,10 +485,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     ev.preventDefault();
     if(f.elements['botcheck'] && f.elements['botcheck'].checked) return;
     btn.disabled=true; btn.textContent='جاري الإرسال...'; msg.hidden=false; msg.textContent='جاري إرسال طلبك...';
-    var ctl=window.AbortController?new AbortController():null, t=setTimeout(function(){ctl&&ctl.abort()},30000);
+    var ctl=window.AbortController?new AbortController():null, t=setTimeout(function(){ctl&&ctl.abort()},180000);
+    var up=window.kjrUpload?window.kjrUpload(ref,function(t){msg.textContent=t}):Promise.resolve('');
+    up.then(function(sum){ if(sum) f.elements['الملفات المرفوعة'].value=sum; msg.textContent='جاري إرسال طلبك...';
     var data={}; new FormData(f).forEach(function(val,key){if(key!=='botcheck') data[key]=val});
-    fetch(f.action,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json',Accept:'application/json'},signal:ctl?ctl.signal:undefined})
+    return fetch(f.action,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json',Accept:'application/json'},signal:ctl?ctl.signal:undefined})
       .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||!(j.success===true||String(j.success)==='true')) throw new Error(j.message||r.status);})})
+    })
       .then(function(){clearTimeout(t); location.href='thanks.html?ref='+encodeURIComponent(ref);})
       .catch(function(){
         clearTimeout(t); btn.disabled=false; btn.textContent='أرسل الطلب';
