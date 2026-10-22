@@ -87,7 +87,7 @@ function check(code){
   code=String(code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
   if(code.length!==8){show({ok:false});return}
   $('c').value=code.slice(0,4)+'-'+code.slice(4);
-  fetch(API+'?a=verify&c='+code).then(r=>r.json()).then(show).catch(()=>show('net'));
+  fetch(API+'?a=verify&code='+code).then(r=>r.json()).then(show).catch(()=>show('net'));
 }
 $('f').addEventListener('submit',e=>{e.preventDefault();check($('c').value)});
 $('langBtn').onclick=()=>{cur=cur==='ar'?'en':'ar';render()};
