@@ -109,6 +109,18 @@ section{padding-block:104px}
 .services p{grid-column:1/-1;margin:0;color:var(--sand-2);font-size:16px;max-width:44ch}
 
 /* founder */
+.pk{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pk li{background:var(--night-2);border:1px solid var(--rule);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;gap:10px}
+.pk li.hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold-a)}
+.pk .tag{align-self:flex-start;font-size:12px;font-weight:500;color:var(--night);background:var(--gold);border-radius:999px;padding:4px 10px}
+.pk h3{font-size:20px;font-weight:500;margin:0}
+.pk .len{color:var(--dust);font-size:14px}
+.pk .from{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);color:var(--dust);font-size:14px}
+.pk .from b{display:block;color:var(--gold);font-size:30px;font-weight:600;line-height:1.2}
+.pk ul{list-style:none;padding:0;margin:0;color:var(--sand-2);font-size:15px;display:flex;flex-direction:column;gap:6px}
+.pk ul li{all:unset;display:block}
+@media (max-width:1000px){.pk{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pk{grid-template-columns:1fr}}
 .founder{background:var(--night-2);border-block:1px solid var(--rule)}
 .founder .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
 .founder .film{border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
@@ -221,7 +233,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="KJR Studio"><img src="logo.png" alt=""><span class="ltr">KJR STUDIO</span></a>
     <nav class="links" aria-label="أقسام الموقع">
-      <a href="#work">أعمالنا</a><a href="#services">الخدمات</a><a href="#how">كيف نشتغل</a><a href="#about">من نحن</a>
+      <a href="#work">أعمالنا</a><a href="#services">الخدمات</a><a href="#packages">الباقات</a><a href="#how">كيف نشتغل</a><a href="#about">من نحن</a>
     </nav>
     <div class="nav-r">
       <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
@@ -295,6 +307,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li><h3>ريلز لوسائل التواصل</h3><span class="len">عمودي <span class="ltr">9:16</span></span><p>مقاطع قصيرة جاهزة لتيك توك وانستقرام وسناب.</p></li>
         <li><h3>فيديو تعريفي للتنفيذيين</h3><span class="len">45 إلى 60 ثانية</span><p>فيديو بصوتك وشكلك يعرّف فيك على لينكدإن وفي العروض.</p></li>
       </ul>
+    </div>
+  </section>
+
+  <section id="packages" style="padding-top:24px">
+    <div class="wrap">
+      <span class="eyebrow">الباقات<span class="en">PACKAGES</span></span>
+      <h2>أسعار مبدئية واضحة</h2>
+      <ul class="pk">
+        <li><h3>مقدمة شعار</h3><span class="len">10 ثواني</span><ul><li>شعارك يتحرك بأسلوب سينمائي</li><li>موسيقى ومؤثرات صوتية</li></ul><div class="from">يبدأ من<b>450 ريال</b></div></li>
+        <li><h3>ريل سريع</h3><span class="len">15 ثانية · عمودي <span class="ltr">9:16</span></span><ul><li>مشاهد بالذكاء الاصطناعي ونصوص</li><li>موسيقى، بدون صوت معلّق</li></ul><div class="from">يبدأ من<b>750 ريال</b></div></li>
+        <li class="hot"><span class="tag">الأكثر طلباً</span><h3>ريل بصوت معلّق</h3><span class="len">حتى 30 ثانية · عمودي <span class="ltr">9:16</span></span><ul><li>صوت عربي احترافي بلهجة سعودية</li><li>مشاهد ونصوص وموسيقى</li></ul><div class="from">يبدأ من<b>1,200 ريال</b></div></li>
+        <li><h3>إعلان سينمائي</h3><span class="len">30 إلى 60 ثانية</span><ul><li>قصة كاملة وصوت معلّق وموسيقى</li><li>نسختين: عمودي وعرضي</li></ul><div class="from">يبدأ من<b>2,500 ريال</b></div></li>
+      </ul>
+      <p class="note">الأسعار مبدئية، والسعر النهائي نتفق عليه بعد ما نفهم فكرتك ومدة الإعلان. كل الباقات تشمل تعديلين، والدفع 50% مقدم والباقي عند التسليم، والتسليم عادة خلال 3 إلى 5 أيام.</p>
     </div>
   </section>
 
