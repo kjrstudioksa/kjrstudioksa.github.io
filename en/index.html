@@ -98,6 +98,11 @@ section{padding-block:104px}
 .t-jamr{grid-column:span 6;aspect-ratio:16/9}
 .t-reel{grid-column:span 3;aspect-ratio:9/16}
 .t-reel .cap{display:none}
+.t-own{grid-column:span 4;aspect-ratio:9/16}
+.work .sub{grid-column:span 12;margin:26px 0 -2px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.work .sub h3{font-size:22px;font-weight:500;margin:0}
+.work .sub span{color:var(--dust);font-size:14px}
+
 .note{color:var(--dust);font-size:14px;margin-top:16px}
 
 /* services */
@@ -197,6 +202,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .t-sarmad{aspect-ratio:16/10}
   .t-jamr{grid-column:span 12}
   .t-reel{grid-column:span 6}
+  .t-own{grid-column:span 6}
+
   .services{grid-template-columns:1fr}
   .services li:nth-child(n){padding-inline:0;border-inline-end:0}
   form{grid-template-columns:1fr;padding:22px}
@@ -294,6 +301,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="tile t-reel">
           <video src="../reel2_en2.mp4" poster="../reel2_en2.jpg" controls preload="none" playsinline></video>
           <div class="cap"><div><b>From product photo to ad</b><span>Before and after</span></div></div>
+        </div>
+        <div class="sub"><h3>Our own ads</h3><span>Ads we made for KJR Studio itself, in the same style we offer you (Arabic)</span></div>
+        <div class="tile t-own">
+          <video src="../season2.mp4" poster="../season2.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>Season ad</b><span>Voice-over reel, 28s</span></div><em>REEL</em></div>
+        </div>
+        <div class="tile t-own">
+          <video src="../snap.mp4" poster="../snap.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>Snapchat cut</b><span>Before and after, 14s</span></div><em>STORY</em></div>
+        </div>
+        <div class="tile t-own">
+          <video src="../season1.mp4" poster="../season1.jpg" controls preload="none" playsinline></video>
+          <div class="cap"><div><b>Coffee kiosk</b><span>Before and after reel, 15s</span></div><em>REEL</em></div>
         </div>
       </div>
       <p class="note">Sarmad and Jamr are concept brands we created to showcase the studio's style.</p>
