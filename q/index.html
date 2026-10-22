@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>عرض سعر | KJR Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0E0C09;--night-2:#16130F;--ink:#1C1813;--ink-2:#4A4338;--dust:#8A806E;
+  --paper:#FBF8F1;--paper-2:#F3EDE0;--rule:#E4DBC8;
+  --gold:#C9A24A;--gold-d:#A9832F;--gold-a:#C9A24A1F;--ok:#2E7D4F;
+  --font:"Alexandria","IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html[lang=en] body{font-size:13.5px}
+body{background:#E9E3D6;color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:32px auto;background:var(--paper);box-shadow:0 10px 40px #0000001f;border-radius:6px;overflow:hidden}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* header */
+.hd{background:var(--night);color:#EFE6D2;padding:40px 40px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative}
+.hd:after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:64px;height:64px;border-radius:8px}
+.brand b{display:block;font-size:18px;font-weight:600;letter-spacing:.3px}
+.brand small{display:block;color:#9A8F7B;font-size:12px;font-weight:300}
+.doc{text-align:end}
+.doc h1{font-size:26px;font-weight:600;color:var(--gold);white-space:nowrap}
+.lang{position:absolute;top:10px;inset-inline-end:14px;font:inherit;font-size:11px;color:#9A8F7B;background:none;border:1px solid #2B261E;border-radius:20px;padding:2px 10px;cursor:pointer}
+.lang:hover{color:var(--gold);border-color:var(--gold)}
+.doc .en{font-size:11px;letter-spacing:3px;color:#9A8F7B;font-weight:400}
+
+/* meta */
+.body{padding:32px 40px 36px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta div{padding:12px 16px;border-inline-start:1px solid var(--rule)}
+.meta div:first-child{border-inline-start:0}
+.meta span{display:block;font-size:11px;color:var(--dust)}
+.meta strong{font-size:14px;font-weight:600}
+.parties{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.party h3,.sec h3{font-size:12px;font-weight:500;color:var(--gold-d);letter-spacing:.3px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.party h3:after,.sec h3:after{content:"";flex:1;height:1px;background:var(--rule)}
+.party p{color:var(--ink-2);font-size:13px;line-height:1.9}
+.party p b{color:var(--ink);font-weight:600;font-size:14px}
+
+/* items */
+.sec{margin-top:28px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--night-2);color:#EFE6D2;font-weight:500;font-size:12px;padding:10px 12px;text-align:start}
+thead th:first-child{border-start-start-radius:6px}
+thead th:last-child{border-start-end-radius:6px;text-align:end}
+tbody td{padding:12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody td:last-child{text-align:end;white-space:nowrap}
+tbody td.q{text-align:center;white-space:nowrap}
+td .it{font-weight:600;font-size:14px}
+td .ds{color:var(--dust);font-size:12px;margin-top:2px}
+
+.totals{display:flex;justify-content:space-between;gap:24px;margin-top:18px;align-items:flex-start}
+.save{flex:1;background:var(--gold-a);border:1px dashed var(--gold);border-radius:6px;padding:12px 16px;font-size:12.5px;color:var(--ink-2)}
+.save b{color:var(--gold-d)}
+.sum{width:300px;font-size:13.5px}
+.sum div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--rule)}
+.sum .disc{color:var(--ok)}
+.sum .grand{border:0;margin-top:6px;background:var(--night);color:#EFE6D2;border-radius:6px;padding:12px 14px;font-size:16px;font-weight:600}
+.sum .grand .num{color:var(--gold-2,#E0BC66)}
+.vat{font-size:11px;color:var(--dust);margin-top:6px;text-align:end}
+
+/* pay + timeline */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.step{display:flex;gap:12px;padding:6px 0}
+.dot{flex:0 0 26px;height:26px;border-radius:50%;background:var(--gold-a);color:var(--gold-d);display:grid;place-items:center;font-weight:600;font-size:12px}
+.step b{display:block;font-size:13.5px}
+.step small{color:var(--dust);font-size:12px}
+.incl{list-style:none;columns:2;column-gap:20px}
+.incl li{padding:3px 0;font-size:13px;break-inside:avoid}
+.incl li:before{content:"✓";color:var(--gold-d);margin-inline-end:8px;font-weight:700}
+.terms{counter-reset:t;list-style:none;font-size:12px;color:var(--ink-2);columns:2;column-gap:28px}
+.terms li{counter-increment:t;padding:3px 0 3px;break-inside:avoid;display:flex;gap:8px}
+.terms li:before{content:counter(t);flex:0 0 18px;height:18px;border-radius:4px;background:var(--paper-2);color:var(--ink-2);font-size:10.5px;display:grid;place-items:center;margin-top:3px}
+
+/* approval */
+.approve{margin-top:28px;border:1.5px solid var(--gold);border-radius:8px;background:#fff;overflow:hidden}
+.approve .ah{background:var(--gold-a);padding:12px 18px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.approve .ah small{font-weight:400;color:var(--dust);font-size:12px}
+.form{padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.form label{font-size:12px;color:var(--ink-2);display:block}
+.form label i{font-style:normal;color:var(--dust);font-size:11px}
+.form input[type=text],.form input[type=email]{width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;font:inherit;font-size:14px;background:var(--paper)}
+.form input:focus{outline:2px solid var(--gold);outline-offset:-1px;background:#fff}
+.form .full{grid-column:1/-1}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink)}
+.chk input{width:18px;height:18px;margin-top:4px;accent-color:var(--gold-d)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:6px;padding:12px 22px;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.btn.pri{background:var(--night);color:var(--gold)}
+.btn.pri:hover{background:#000}
+.btn.sec{background:transparent;color:var(--ink-2);border:1px solid var(--rule)}
+.signed{display:none;padding:16px 18px;font-size:13px}
+.signed b{color:var(--ok)}
+
+.ft{background:var(--paper-2);padding:16px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--dust);border-top:1px solid var(--rule)}
+
+@media (max-width:640px){
+  .sheet{margin:0;border-radius:0}
+  .hd{padding:20px 16px}
+  .brand img{width:48px;height:48px}
+  .doc h1{font-size:20px}
+  .brand small{display:none}
+  .body{padding:20px 16px 24px}
+  .meta{grid-template-columns:1fr 1fr}
+  .meta div:nth-child(3){border-inline-start:0}
+  .meta div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .parties,.grid2,.form{grid-template-columns:1fr}
+  .totals{flex-direction:column-reverse}
+  .sum{width:100%}
+  .incl,.terms{columns:1}
+  thead .hq,tbody td.q{display:none}
+  .ft{padding:14px 16px}
+}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none}
+  .form,.btns,.lang,.noprint{display:none!important}
+  .signed{display:block}
+  .hd,thead th,.sum .grand,.save,.dot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec,.approve,.totals{break-inside:avoid}
+}
+
+.auth{display:flex;align-items:center;gap:22px;margin-top:28px;padding:16px 18px;border:1px solid var(--rule);border-radius:8px;background:#fff;break-inside:avoid}
+.auth img{width:118px;height:118px;transform:rotate(-9deg);opacity:.92;flex:0 0 auto}
+.auth b{display:block;font-size:13.5px}
+.auth p{font-size:12px;color:var(--ink-2);margin-top:2px}
+.auth .code{display:inline-block;margin-top:6px;font-weight:700;letter-spacing:1.5px;background:var(--paper-2);border-radius:4px;padding:2px 10px;font-size:13px}
+@media (max-width:640px){.auth img{width:92px;height:92px}}
+
+.state{max-width:560px;margin:80px auto;text-align:center;padding:32px 24px;background:var(--paper);border-radius:8px;box-shadow:0 10px 40px #0000001f}
+.state h2{font-size:18px;margin-bottom:8px}.state p{color:var(--ink-2);font-size:14px}
+.state a{color:var(--gold-d)}
+.spin{width:32px;height:32px;border:3px solid var(--rule);border-top-color:var(--gold);border-radius:50%;margin:0 auto 14px;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.notice{margin-top:28px;padding:14px 18px;border-radius:8px;background:#FBEDEA;color:#8A2E1E;font-size:13.5px}
+.paybox{margin-top:28px;border:1.5px solid var(--gold);border-radius:8px;background:#fff;overflow:hidden}
+.paybox .ah{background:var(--gold-a);padding:12px 18px;font-weight:600}
+.paybox .in{padding:16px 18px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bank{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:13px}
+.bank span{color:var(--dust);white-space:nowrap}.bank b{white-space:nowrap}
+.up{border:1.5px dashed var(--rule);border-radius:8px;padding:14px;text-align:center;font-size:13px}
+.up input{display:none}
+.up label{display:inline-block;margin-top:8px;cursor:pointer}
+.up .st{margin-top:8px;font-size:12.5px;color:var(--ink-2)}
+.plist{font-size:12.5px;margin-top:10px}.plist div{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--rule)}
+.tag{font-size:11px;border-radius:10px;padding:1px 8px;background:var(--paper-2)}.tag.ok{background:#E3F1E8;color:var(--ok)}
+.err{color:#B4442F;font-size:12.5px;margin-top:6px}
+@media (max-width:640px){.paybox .in{grid-template-columns:1fr}}
+@media print{.paybox,.notice{display:none!important}}
+</style>
+</head>
+<body>
+<div class="state" id="load"><div class="spin"></div><p>...</p></div>
+<div class="state" id="fail" style="display:none"><h2 id="failT"></h2><p id="failP"></p></div>
+<main class="sheet" id="q" style="display:none">
+  <header class="hd">
+    <button class="lang" type="button" id="langBtn"></button>
+    <div class="brand">
+      <img src="../logo.png" alt="KJR Studio">
+      <div><b>KJR Studio</b><small data-t="tag"></small></div>
+    </div>
+    <div class="doc"><h1 data-t="title"></h1><div class="en" data-t="title2"></div></div>
+  </header>
+
+  <section class="body">
+    <div class="meta">
+      <div><span data-t="m_no"></span><strong class="num" data-f="no"></strong></div>
+      <div><span data-t="m_date"></span><strong data-f="date"></strong></div>
+      <div><span data-t="m_valid"></span><strong data-f="valid"></strong></div>
+      <div><span data-t="m_order"></span><strong class="num" data-f="order"></strong></div>
+    </div>
+
+    <div class="parties">
+      <div class="party">
+        <h3 data-t="to"></h3>
+        <p><b data-f="c_entity"></b><br><span data-f="c_name"></span><br><span data-f="c_city"></span> · <span class="num" data-f="c_phone"></span></p>
+      </div>
+      <div class="party">
+        <h3 data-t="from"></h3>
+        <p><b>KJR Studio</b> <span data-t="owner"></span><br><span data-t="fl"></span> <span class="num">FL-803189889</span><br><span data-t="city"></span> · <span class="num">+966 57 942 9980</span> · <span class="num">kjrstudio.ksa@gmail.com</span></p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3 data-t="s_items"></h3>
+      <table>
+        <thead><tr><th data-t="th_item"></th><th class="hq" style="text-align:center" data-t="th_qty"></th><th data-t="th_amt"></th></tr></thead>
+        <tbody id="items"></tbody>
+      </table>
+      <div class="totals">
+        <div class="save" id="save"></div>
+        <div class="sum">
+          <div><span data-t="subtotal"></span><span class="num" data-f="subtotal"></span></div>
+          <div class="disc" id="discRow"><span data-t="disc"></span><span class="num" data-f="discount"></span></div>
+          <div class="grand"><span data-t="total"></span><span class="num" data-f="total"></span></div>
+          <div class="vat" data-t="vat"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec grid2">
+      <div>
+        <h3 data-t="s_pay"></h3>
+        <div class="box">
+          <div class="step"><div class="dot">1</div><div><b data-t="p1"></b><small data-t="p1s"></small></div></div>
+          <div class="step"><div class="dot">2</div><div><b data-t="p2"></b><small data-t="p2s"></small></div></div>
+          <div class="step"><div class="dot">3</div><div><b data-t="p3"></b><small data-t="p3s"></small></div></div>
+        </div>
+      </div>
+      <div>
+        <h3 data-t="s_steps"></h3>
+        <div class="box">
+          <div class="step"><div class="dot">1</div><div><b data-t="st1"></b><small data-t="st1s"></small></div></div>
+          <div class="step"><div class="dot">2</div><div><b data-t="st2"></b><small data-t="st2s"></small></div></div>
+          <div class="step"><div class="dot">3</div><div><b data-t="st3"></b><small data-t="st3s"></small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3 data-t="s_incl"></h3>
+      <ul class="incl" id="incl"></ul>
+    </div>
+
+    <div class="sec">
+      <h3 data-t="s_terms"></h3>
+      <ol class="terms" id="terms"></ol>
+    </div>
+
+    <div class="approve">
+      <div class="ah"><span data-t="ap"></span><small data-t="ap_s"></small></div>
+      <form class="form" id="f">
+        <label><span data-t="f_name"></span><input type="text" name="name" required></label>
+        <label><span data-t="f_entity"></span><input type="text" name="entity" required></label>
+        <label><span data-t="f_email"></span> <i data-t="f_email_h"></i><input type="email" name="email" required></label>
+        <label><span data-t="f_cr"></span> <i data-t="f_cr_h"></i><input type="text" name="cr"></label>
+        <label class="chk full"><input type="checkbox" required> <span data-t="f_agree"></span></label>
+        <div class="err full" id="fErr" style="display:none"></div>
+        <div class="btns full"><button class="btn pri" type="submit" id="okBtn" data-t="b_ok"></button><button class="btn sec" type="button" onclick="window.print()" data-t="b_pdf"></button></div>
+      </form>
+      <div class="signed" id="signed"><span data-t="signed"></span> <b data-f="signed_by"></b> · <span data-f="signed_at"></span></div>
+    </div>
+
+    <div class="notice" id="expired" style="display:none"></div>
+    <div class="paybox" id="paybox" style="display:none">
+      <div class="ah" data-t="pb_t"></div>
+      <div class="in">
+        <div>
+          <div class="bank" id="bank"></div>
+          <div class="plist" id="plist"></div>
+          <p id="invLink" style="margin-top:10px;display:none"><a class="btn sec" style="display:inline-block;text-decoration:none" target="_blank" data-t="pb_inv"></a></p>
+        </div>
+        <div class="up" id="upBox">
+          <div id="upMsg"></div>
+          <div id="upCtl"><div data-t="pb_up"></div>
+          <input type="file" id="rf" accept="image/*,application/pdf">
+          <label for="rf" class="btn pri" data-t="pb_btn"></label>
+          <div class="st" id="upSt"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth" id="auth">
+      <img src="../stamp.png" alt="">
+      <div><b data-t="au_t"></b><p data-t="au_p"></p><p><span data-t="au_c"></span> <span class="code num" data-f="vcode"></span></p><p class="num" style="color:var(--dust)" data-f="vlink"></p></div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <span>KJR Studio · kjrstudioksa.com</span>
+    <span data-t="ft"></span>
+  </footer>
+</main>
+
+<script>
+const API='https://script.google.com/macros/s/AKfycbyJ6djSDUD-MAj2ueHPRcpWRshAu4-A0Hk86dA6UwJRjAebQPl5PHqqa73ZoUcvY0VWrw/exec';
+const T={
+ar:{dir:"rtl",pb_t:"الدفع",pb_inv:"عرض الفاتورة",pb_up:"بعد التحويل ارفع صورة الإيصال هنا (صورة أو PDF)",pb_btn:"رفع الإيصال",pb_done:"تم السداد بالكامل، شكراً لك.",pb_wait:"وصلنا الإيصال، وبنأكد الاستلام ونرسل لك الفاتورة على إيميلك.",pb_sending:"جاري الرفع...",pb_err:"ما انرفع الملف، جرّب مرة ثانية أو أرسله على الواتساب.",pb_big:"الملف أكبر من 8 ميقا",pb_next:a=>`المطلوب الآن: <b class="num">${a}</b> ريال`,b_name:"اسم المستفيد",b_bank:"البنك",b_ref:"مرجع التحويل",pay1:"الدفعة الأولى",pay2:"الدفعة الثانية",ok:"مؤكدة",pend:"قيد التأكيد",bank_na:"بيانات الحساب تصلك على الواتساب.",exp:"انتهت صلاحية هذا العرض. تواصل معنا على الواتساب ونجدده لك.",can:"تم إلغاء هذا العرض.",nf_t:"الرابط غير صحيح",nf_p:"تأكد من الرابط أو تواصل معنا على الواتساب +966 57 942 9980",net:"تعذّر الاتصال، حدّث الصفحة.",f_bad:"تأكد من الاسم والمنشأة والإيميل.",sending:"جاري تسجيل الموافقة...",au_t:"صادرة إلكترونياً من KJR Studio",au_p:"للتأكد من صحة هذا المستند افتح الرابط أدناه وقارن البيانات بالنسخة الأصلية.",au_c:"رمز التحقق:",page:"عرض سعر | KJR Studio",other:"English",tag:"استوديو إعلانات الفيديو بالذكاء الاصطناعي",title:"عرض سعر",title2:"QUOTATION",
+ m_no:"رقم العرض",m_date:"التاريخ",m_valid:"صالح حتى",m_order:"رقم الطلب",to:"مقدّم إلى",from:"من",owner:"(خالد الرواف)",fl:"وثيقة العمل الحر:",city:"جدة",
+ s_items:"تفاصيل العمل",th_item:"البند",th_qty:"الكمية",th_amt:"المبلغ (ريال)",subtotal:"المجموع",disc:"خصم خاص",total:"الإجمالي",
+ vat:"المبالغ بالريال السعودي، ولا تشمل ضريبة القيمة المضافة (المنشأة غير مسجلة فيها)",
+ save:(d,p)=>`وفّرت <b class="num">${d}</b> ريال (<span class="num">${p}%</span>) على هذا العرض.<br>الخصم ساري خلال مدة صلاحية العرض فقط.`,
+ s_pay:"الدفع",p1:a=>`دفعة أولى 50%: <span class="num">${a}</span> ريال`,p1s:"عند الموافقة على العرض، ويبدأ العمل بعدها",
+ p2:a=>`الدفعة الثانية 50%: <span class="num">${a}</span> ريال`,p2s:"عند اعتماد النسخة النهائية وقبل تسليم الملفات",
+ p3:"تحويل بنكي",p3s:"بيانات الحساب تظهر بعد الموافقة، وترفع الإيصال من نفس الصفحة",
+ s_steps:"مراحل التنفيذ",st1:"استلام الدفعة الأولى والمواد",st1s:"الشعار وصور المحل أو المنتجات",st2:"النسخة الأولى خلال 3 إلى 5 أيام عمل",st2s:"رابط معاينة على الجوال",st3:"التعديلات ثم التسليم النهائي",st3s:"ملفات عالية الجودة جاهزة للنشر",
+ s_incl:"يشمل العرض",s_terms:"الشروط",
+ terms:["العرض صالح لمدة 7 أيام من تاريخه.","مدة التنفيذ تبدأ من استلام الدفعة الأولى وكل المواد المطلوبة.","يشمل السعر تعديلين على نفس الفكرة. التعديل الإضافي بـ 190 ريال، وتغيير الفكرة بالكامل يعتبر طلباً جديداً.","يقر العميل بأن الشعار والصور والأسماء المرسلة ملكه أو مصرّح له باستخدامها.","المشاهد منتجة بأدوات الذكاء الاصطناعي، وقد تختلف تفاصيل بسيطة عن الواقع.","تنتقل حقوق استخدام الإعلان للعميل على كل المنصات بعد سداد كامل المبلغ.","لا يعرض الاستوديو العمل ضمن أعماله إلا بموافقة العميل.","الدفعة الأولى غير مستردة بعد بدء التنفيذ."],
+ ap:"الموافقة على العرض",ap_s:"بياناتك تستخدم لإصدار الفاتورة فقط",f_name:"الاسم الكامل",f_entity:"اسم المنشأة أو المحل",f_email:"البريد الإلكتروني",f_email_h:"(تصلك عليه نسخة العرض والفاتورة)",
+ f_cr:"رقم السجل التجاري أو الوثيقة",f_cr_h:"(اختياري، إذا تبغى الفاتورة باسم المنشأة)",f_agree:"قرأت تفاصيل العرض والشروط وأوافق عليها.",b_ok:"أوافق على العرض",b_pdf:"حفظ PDF",
+ signed:"تمت الموافقة إلكترونياً:",ft:"هذا العرض صادر إلكترونياً ولا يحتاج توقيع",locale:"ar-u-ca-gregory-nu-latn"},
+en:{dir:"ltr",pb_t:"Payment",pb_inv:"View invoice",pb_up:"After the transfer, upload the receipt here (image or PDF)",pb_btn:"Upload receipt",pb_done:"Paid in full. Thank you.",pb_wait:"We received your receipt. We will confirm it and email you the invoice.",pb_sending:"Uploading...",pb_err:"Upload failed. Try again or send it on WhatsApp.",pb_big:"The file is larger than 8 MB",pb_next:a=>`Due now: <b class="num">SAR ${a}</b>`,b_name:"Beneficiary",b_bank:"Bank",b_ref:"Transfer reference",pay1:"First payment",pay2:"Second payment",ok:"Confirmed",pend:"Being confirmed",bank_na:"Account details will be sent to you on WhatsApp.",exp:"This quote has expired. Contact us on WhatsApp and we will renew it.",can:"This quote has been cancelled.",nf_t:"Invalid link",nf_p:"Check the link or contact us on WhatsApp +966 57 942 9980",net:"Connection failed. Please refresh the page.",f_bad:"Please check your name, business name and email.",sending:"Recording your approval...",au_t:"Issued electronically by KJR Studio",au_p:"To verify this document, open the link below and compare it with the original.",au_c:"Verification code:",page:"Quotation | KJR Studio",other:"عربي",tag:"AI video advertising studio",title:"Quotation",title2:"",
+ m_no:"Quote no.",m_date:"Date",m_valid:"Valid until",m_order:"Order no.",to:"Prepared for",from:"From",owner:"(Khaled Al Rawaf)",fl:"Freelance document:",city:"Jeddah",
+ s_items:"Scope of work",th_item:"Item",th_qty:"Qty",th_amt:"Amount (SAR)",subtotal:"Subtotal",disc:"Special discount",total:"Total",
+ vat:"Amounts in Saudi riyals. VAT not applicable (supplier not VAT registered).",
+ save:(d,p)=>`You save <b class="num">SAR ${d}</b> (<span class="num">${p}%</span>) on this quote.<br>The discount applies only while the quote is valid.`,
+ s_pay:"Payment",p1:a=>`First payment 50%: <span class="num">SAR ${a}</span>`,p1s:"On approval. Work starts once received",
+ p2:a=>`Second payment 50%: <span class="num">SAR ${a}</span>`,p2s:"On sign-off of the final version, before file delivery",
+ p3:"Bank transfer",p3s:"Account details appear after approval. Upload the receipt on the same page",
+ s_steps:"Timeline",st1:"First payment and materials received",st1s:"Logo and photos of the shop or products",st2:"First draft in 3 to 5 working days",st2s:"Preview link on your phone",st3:"Revisions, then final delivery",st3s:"High-quality files ready to publish",
+ s_incl:"Included",s_terms:"Terms",
+ terms:["This quote is valid for 7 days from its date.","The timeline starts once the first payment and all required materials are received.","The price includes two revisions on the same concept. Each extra revision is SAR 190. A complete change of concept is treated as a new order.","The client confirms that the logo, images and names provided are owned by the client or used with permission.","Scenes are produced with AI tools, and minor details may differ from reality.","Usage rights on all platforms transfer to the client once payment is complete.","The studio will not show this work in its portfolio without the client's approval.","The first payment is non-refundable once production has started."],
+ ap:"Approve this quote",ap_s:"Your details are used only to issue the invoice",f_name:"Full name",f_entity:"Business name",f_email:"Email",f_email_h:"(a copy of the quote and the invoice is sent here)",
+ f_cr:"Commercial registration or document no.",f_cr_h:"(optional, for an invoice in the business name)",f_agree:"I have read the quote and the terms and I agree to them.",b_ok:"Approve quote",b_pdf:"Save PDF",
+ signed:"Approved electronically by",ft:"This quote is issued electronically and needs no signature",locale:"en-GB"}
+};
+const INCL={
+ rev2:{ar:"تعديلان على النسخة الأولى",en:"Two revisions on the first draft"},
+ mp4:{ar:"ملفات MP4 بدقة 1080p",en:"MP4 files in 1080p"},
+ clean:{ar:"نسخة بدون نص للاستخدام في الإعلانات الممولة",en:"Text-free version for paid ads"},
+ cover:{ar:"صورة غلاف للريل",en:"Reel cover image"},
+ rights:{ar:"حقوق استخدام تجاري على كل المنصات",en:"Commercial usage rights on all platforms"},
+ link:{ar:"تسليم عبر رابط تحميل",en:"Delivery by download link"}
+};
+const fmt=n=>Number(n||0).toLocaleString('en-US');
+const $=id=>document.getElementById(id);
+const tok=new URLSearchParams(location.search).get('t')||'';
+const want=new URLSearchParams(location.search).get('lang');
+let Q=null,cur='ar';
+const INC=["rev2","mp4","clean","cover","rights","link"];
+
+function fail(key){const L=T[cur];$('load').style.display='none';$('q').style.display='none';$('fail').style.display='';$('failT').textContent=key==='net'?'':L.nf_t;$('failP').textContent=key==='net'?L.net:L.nf_p}
+function render(lang){
+  cur=lang;const L=T[lang],h=document.documentElement;h.lang=lang;h.dir=L.dir;document.title=L.page;
+  const d=s=>s?new Intl.DateTimeFormat(L.locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(String(s).slice(0,10)+'T12:00:00')):'';
+  const rows=Q.items.map(i=>({q:i.q,p:i.p,t:i[lang]}));
+  const sub=rows.reduce((s,i)=>s+i.q*i.p,0),D=Q.discount||0,tot=sub-D,p1=Math.ceil(tot/2);
+  const V={no:Q.no,order:Q.order,date:d(Q.date),valid:d(Q.valid),c_name:Q.c_name,c_entity:Q.c_entity,c_city:Q.c_city,c_phone:Q.c_phone,
+    subtotal:fmt(sub),total:fmt(tot),discount:D?"− "+fmt(D):"",signed_by:Q.signed_by,signed_at:Q.signed_at,vcode:Q.vcode,vlink:"kjrstudioksa.com/v/?c="+Q.vcode};
+  document.querySelectorAll('[data-f]').forEach(e=>{const v=V[e.dataset.f];if(v!==undefined)e.textContent=v});
+  document.querySelectorAll('[data-t]').forEach(e=>{let v=L[e.dataset.t];if(typeof v==='function'){if(e.dataset.t==='p1')v=v(fmt(p1));else if(e.dataset.t==='p2')v=v(fmt(tot-p1));else return}if(v!==undefined)e.innerHTML=v});
+  $('langBtn').textContent=L.other;
+  $('items').innerHTML=rows.map(i=>`<tr><td><div class="it">${esc(i.t[0])}</div><div class="ds">${esc(i.t[1])}</div></td><td class="q"><span class="num">${i.q}</span></td><td><span class="num">${fmt(i.q*i.p)}</span></td></tr>`).join('');
+  $('incl').innerHTML=INC.map(k=>`<li>${INCL[k][lang]}</li>`).join('');
+  $('terms').innerHTML=L.terms.map(x=>`<li>${x}</li>`).join('');
+  $('discRow').style.display=D?'':'none';
+  const sv=$('save');sv.innerHTML=D?L.save(fmt(D),Math.round(D/sub*100)):'';sv.style.visibility=D?'':'hidden';
+  const ok=!!Q.signed_by, closed=!ok&&(Q.expired||Q.cancelled);
+  $('auth').style.display=ok?'':'none';
+  $('f').style.display=ok||closed?'none':'';
+  $('signed').style.display=ok?'block':'none';
+  document.querySelector('.approve').style.display=closed?'none':'';
+  $('expired').style.display=closed?'':'none';$('expired').textContent=Q.cancelled?L.can:L.exp;
+  renderPay(L,d,tot,p1);
+  $('load').style.display='none';$('fail').style.display='none';$('q').style.display='';
+}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderPay(L,d,tot,p1){
+  if(!Q.signed_by){$('paybox').style.display='none';return}
+  $('paybox').style.display='';
+  const b=Q.bank||{};
+  $('bank').innerHTML=b.iban?`<span>${L.b_name}</span><b>${esc(b.name)}</b><span>${L.b_bank}</span><b>${esc(b.bank)}</b><span>IBAN</span><b class="num">${esc(b.iban)}</b><span>${L.b_ref}</span><b class="num">${esc(Q.no)}</b>`:`<span></span><b style="white-space:normal">${L.bank_na}</b>`;
+  const P=Q.payments||[];
+  $('plist').innerHTML=P.map(p=>`<div><span>${L[p.k]||''} · ${d(p.d)}</span><span><span class="num">${fmt(p.a)}</span> <span class="tag ${p.s==='ok'?'ok':''}">${p.s==='ok'?L.ok:L.pend}</span></span></div>`).join('');
+  const paid=P.reduce((s,p)=>s+p.a,0),pending=P.some(p=>p.s!=='ok'),due=tot-paid;
+  const nextAmt=P.length===0?p1:due;
+  if(Q.invoice){$('invLink').style.display='';$('invLink').querySelector('a').href=Q.invoice}else $('invLink').style.display='none';
+  const msg=$('upMsg'),ctl=$('upCtl');
+  if(due<=0&&!pending){msg.innerHTML=`<b style="color:var(--ok)">${L.pb_done}</b>`;ctl.style.display='none';return}
+  if(pending){msg.textContent=L.pb_wait;ctl.style.display='none';return}
+  msg.textContent='';ctl.style.display='';
+  $('upSt').innerHTML=L.pb_next(fmt(nextAmt));
+}
+function load(){
+  fetch(API+'?a=quote&t='+encodeURIComponent(tok)).then(r=>r.json()).then(j=>{
+    if(!j.ok){fail('nf');return}
+    Q=j;render(T[want]?want:Q.lang);
+  }).catch(()=>fail('net'));
+}
+function post(o){return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(o)}).then(r=>r.json())}
+$('f').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target,L=T[cur],er=$('fErr'),b=$('okBtn');
+  const v=n=>(f.elements[n].value||'').trim();
+  if(v('name').length<3||v('entity').length<2||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))){er.textContent=L.f_bad;er.style.display='';return}
+  er.style.display='none';b.disabled=true;b.textContent=L.sending;
+  post({a:'approve',t:tok,name:v('name'),entity:v('entity'),email:v('email'),cr:v('cr'),agent:navigator.userAgent.slice(0,200)}).then(j=>{
+    if(!j.ok){er.textContent=j.error==='expired'?L.exp:L.f_bad;er.style.display='';b.disabled=false;b.textContent=L.b_ok;return}
+    Q=j;render(cur);window.scrollTo({top:document.getElementById('paybox').offsetTop-20,behavior:'smooth'});
+  }).catch(()=>{er.textContent=L.net;er.style.display='';b.disabled=false;b.textContent=L.b_ok});
+});
+$('rf').addEventListener('change',e=>{
+  const file=e.target.files[0],L=T[cur],st=$('upSt');if(!file)return;
+  if(file.size>8*1024*1024){st.innerHTML=`<span class="err">${L.pb_big}</span>`;return}
+  st.textContent=L.pb_sending;
+  const r=new FileReader();r.onload=()=>{
+    post({a:'receipt',t:tok,kind:'q',name:file.name,type:file.type||'application/octet-stream',data:String(r.result).split(',')[1]||''})
+      .then(j=>{if(!j.ok)throw 0;load()}).catch(()=>{st.innerHTML=`<span class="err">${L.pb_err}</span>`});
+  };r.readAsDataURL(file);e.target.value='';
+});
+$('langBtn').onclick=()=>render(cur==='ar'?'en':'ar');
+if(!tok)fail('nf');else load();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>التحقق من المستندات | KJR Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0E0C09;--ink:#1C1813;--ink-2:#4A4338;--dust:#8A806E;--paper:#FBF8F1;--paper-2:#F3EDE0;--rule:#E4DBC8;--gold:#C9A24A;--gold-d:#A9832F;--gold-a:#C9A24A1F;--ok:#2E7D4F;--font:"Alexandria","IBM Plex Sans Arabic",Tahoma,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E9E3D6;color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.75;min-height:100vh;padding:32px 16px}
+.card{max-width:520px;margin:0 auto;background:var(--paper);border-radius:8px;overflow:hidden;box-shadow:0 10px 40px #0000001f}
+.hd{background:var(--night);color:#EFE6D2;padding:22px 24px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--gold)}
+.hd img{width:48px;height:48px;border-radius:8px}
+.hd b{display:block;font-size:17px}.hd small{color:#9A8F7B;font-size:12px}
+.lang{margin-inline-start:auto;font:inherit;font-size:11px;color:#9A8F7B;background:none;border:1px solid #2B261E;border-radius:20px;padding:2px 10px;cursor:pointer}
+.body{padding:24px}
+h1{font-size:18px;font-weight:600;margin-bottom:4px}
+p.sub{color:var(--ink-2);font-size:13px;margin-bottom:16px}
+form{display:flex;gap:8px}
+input{flex:1;padding:11px 12px;border:1px solid var(--rule);border-radius:6px;font:inherit;font-size:16px;letter-spacing:2px;text-transform:uppercase;direction:ltr;text-align:center;background:#fff}
+input:focus{outline:2px solid var(--gold);outline-offset:-1px}
+button.go{border:0;border-radius:6px;padding:0 20px;background:var(--night);color:var(--gold);font:inherit;font-weight:600;cursor:pointer}
+.res{margin-top:20px;border-radius:8px;padding:16px 18px;display:none}
+.res.ok{background:#E3F1E8;border:1px solid #BFDCC9}
+.res.no{background:#FBEDEA;border:1px solid #F0CFC7;color:#8A2E1E}
+.res h2{font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.grid{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:13.5px}
+.grid>span{color:var(--dust)}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.note{font-size:12px;color:var(--dust);margin-top:16px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hd"><img src="../logo.png" alt=""><div><b>KJR Studio</b><small data-t="tag"></small></div><button class="lang" id="langBtn" type="button"></button></div>
+  <div class="body">
+    <h1 data-t="h"></h1>
+    <p class="sub" data-t="sub"></p>
+    <form id="f"><input id="c" maxlength="9" placeholder="XXXX-XXXX" autocomplete="off"><button class="go" type="submit" data-t="go"></button></form>
+    <div class="res" id="res"></div>
+    <p class="note" data-t="note"></p>
+  </div>
+</div>
+<script>
+const API='https://script.google.com/macros/s/AKfycbyJ6djSDUD-MAj2ueHPRcpWRshAu4-A0Hk86dA6UwJRjAebQPl5PHqqa73ZoUcvY0VWrw/exec';
+const T={
+ ar:{dir:"rtl",page:"التحقق من المستندات | KJR Studio",other:"English",tag:"التحقق من المستندات",h:"تحقق من فاتورة أو عرض سعر",sub:"اكتب رمز التحقق المطبوع بجانب الختم.",go:"تحقق",
+  ok_invoice:"فاتورة صحيحة وصادرة من KJR Studio",ok_quote:"عرض سعر صحيح وموافق عليه",no:"ما لقينا مستند بهذا الرمز. تأكد من الرمز أو تواصل معنا.",net:"تعذّر الاتصال، جرّب مرة ثانية.",
+  no_l:"الرقم",date:"التاريخ",entity:"العميل",total:"الإجمالي",paid:"المدفوع",status:"الحالة",appr:"تاريخ الموافقة",sar:"ريال",
+  note:"تعرض هذه الصفحة البيانات الأساسية فقط. قارنها بالمستند اللي معك، وأي اختلاف يعني إن المستند معدّل.",locale:"ar-u-ca-gregory-nu-latn",
+  st:{"مدفوعة بالكامل":"مدفوعة بالكامل","مدفوعة جزئياً":"مدفوعة جزئياً","موافق عليه":"موافق عليه","مدفوع جزئياً":"مدفوع جزئياً","مدفوع بالكامل":"مدفوع بالكامل"}},
+ en:{dir:"ltr",page:"Document verification | KJR Studio",other:"عربي",tag:"Document verification",h:"Verify an invoice or quote",sub:"Enter the verification code printed next to the stamp.",go:"Verify",
+  ok_invoice:"Valid invoice issued by KJR Studio",ok_quote:"Valid, approved quote",no:"No document matches this code. Check the code or contact us.",net:"Connection failed. Please try again.",
+  no_l:"Number",date:"Date",entity:"Client",total:"Total",paid:"Paid",status:"Status",appr:"Approved on",sar:"SAR",
+  note:"This page shows the key details only. Compare them with your document. Any difference means the document was altered.",locale:"en-GB",
+  st:{"مدفوعة بالكامل":"Paid in full","مدفوعة جزئياً":"Partially paid","موافق عليه":"Approved","مدفوع جزئياً":"Partially paid","مدفوع بالكامل":"Paid in full"}}
+};
+const $=id=>document.getElementById(id),P=new URLSearchParams(location.search);
+let cur=P.get('lang')==='en'?'en':'ar',last=null;
+const fmt=n=>Number(n||0).toLocaleString('en-US');
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+  const L=T[cur],h=document.documentElement;h.lang=cur;h.dir=L.dir;document.title=L.page;
+  document.querySelectorAll('[data-t]').forEach(e=>e.textContent=L[e.dataset.t]);
+  $('langBtn').textContent=L.other;
+  if(last)show(last);
+}
+function show(j){
+  last=j;const L=T[cur],r=$('res');r.style.display='block';
+  if(j==='net'){r.className='res no';r.textContent=L.net;return}
+  if(!j.ok){r.className='res no';r.textContent=L.no;return}
+  const d=s=>new Intl.DateTimeFormat(L.locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(String(s).slice(0,10)+'T12:00:00'));
+  r.className='res ok';
+  r.innerHTML=`<h2>✓ ${j.type==='invoice'?L.ok_invoice:L.ok_quote}</h2><div class="grid">
+   <span>${L.no_l}</span><b class="num">${esc(j.no)}</b>
+   <span>${L.date}</span><b>${d(j.date)}</b>
+   <span>${L.entity}</span><b>${esc(j.entity)}</b>
+   <span>${L.total}</span><b><span class="num">${fmt(j.total)}</span> ${L.sar}</b>
+   ${j.type==='invoice'?`<span>${L.paid}</span><b><span class="num">${fmt(j.paid)}</span> ${L.sar}</b>`:`<span>${L.appr}</span><b class="num">${esc(j.approved_at)}</b>`}
+   <span>${L.status}</span><b>${esc(L.st[j.status]||j.status)}</b></div>`;
+}
+function check(code){
+  code=String(code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(code.length!==8){show({ok:false});return}
+  $('c').value=code.slice(0,4)+'-'+code.slice(4);
+  fetch(API+'?a=verify&c='+code).then(r=>r.json()).then(show).catch(()=>show('net'));
+}
+$('f').addEventListener('submit',e=>{e.preventDefault();check($('c').value)});
+$('langBtn').onclick=()=>{cur=cur==='ar'?'en':'ar';render()};
+render();
+if(P.get('c'))check(P.get('c'));
+</script>
+</body>
+</html>
