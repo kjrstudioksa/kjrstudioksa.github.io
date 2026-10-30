@@ -126,6 +126,11 @@ section{padding-block:104px}
 .pk ul li{all:unset;display:block}
 @media (max-width:1000px){.pk{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.pk{grid-template-columns:1fr}}
+.pk.fam{grid-template-columns:repeat(3,1fr)}
+.famh{margin-top:56px;font-size:24px;font-weight:500}
+.famsub{color:var(--dust);margin:8px 0 0;max-width:640px}
+@media (max-width:1000px){.pk.fam{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pk.fam{grid-template-columns:1fr}}
 .founder{background:var(--night-2);border-block:1px solid var(--rule)}
 .founder .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
 .founder .film{border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
@@ -340,6 +345,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li class="hot"><span class="tag">الأكثر طلباً</span><h3>ريل بصوت معلّق</h3><span class="len">حتى 30 ثانية · عمودي <span class="ltr">9:16</span></span><ul><li>صوت عربي احترافي بلهجة سعودية</li><li>مشاهد ونصوص وموسيقى</li></ul><div class="from">يبدأ من<b>1,450 ريال</b></div></li>
         <li><h3>إعلان سينمائي</h3><span class="len">30 إلى 60 ثانية</span><ul><li>قصة كاملة وصوت معلّق وموسيقى</li><li>نسختين: عمودي وعرضي</li></ul><div class="from">يبدأ من<b>2,950 ريال</b></div></li>
       </ul>
+      <h3 class="famh" id="family">عائلتك بشخصيات كرتونية</h3>
+      <p class="famsub">نحوّل صوركم لشخصيات كرتونية ونسوي لكم فيديو قصير يضحك وينحفظ، لعيد ميلاد أو نجاح أو أي مناسبة، أو بس عشان الذكرى.</p>
+      <ul class="pk fam">
+        <li><h3>عائلتي</h3><span class="len">15 ثانية · عمودي <span class="ltr">9:16</span></span><ul><li>حتى 3 شخصيات كرتونية من صوركم</li><li>رقصة أو موقف مضحك مع موسيقى</li></ul><div class="from">يبدأ من<b>499 ريال</b></div></li>
+        <li class="hot"><span class="tag">بأغنية خاصة</span><h3>عائلتي بأغنية</h3><span class="len">30 ثانية · عمودي <span class="ltr">9:16</span></span><ul><li>حتى 4 شخصيات كرتونية</li><li>أغنية خاصة فيها أسماءكم</li></ul><div class="from">يبدأ من<b>899 ريال</b></div></li>
+        <li><h3>المناسبة</h3><span class="len">حتى 60 ثانية</span><ul><li>حتى 6 شخصيات وأغنية خاصة</li><li>نسخة أفقية للعرض في الحفلة</li></ul><div class="from">يبدأ من<b>1,490 ريال</b></div></li>
+      </ul>
+      <p class="note">صوركم تُستخدم لإنتاج الشخصيات فقط، وما ننشر أي فيديو عائلي إلا بموافقتكم.</p>
       <p class="note">الأسعار مبدئية، والسعر النهائي نتفق عليه بعد ما نفهم فكرتك ومدة الإعلان. كل الباقات تشمل تعديلين، والدفع 50% مقدم والباقي عند التسليم، والتسليم عادة خلال 3 إلى 5 أيام.</p>
     </div>
   </section>
@@ -396,6 +409,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <option>إعلان منتج</option>
             <option>ريلز لوسائل التواصل</option>
             <option>فيديو تعريفي للتنفيذيين</option>
+            <option>كرتون عائلي</option>
             <option>شي ثاني</option>
           </select></div>
         <div class="f"><label for="when">متى تحتاجه؟</label>
